@@ -30,7 +30,8 @@
         "#Controllers/*": "./src/controllers/*",
         "#Dto/*": "./src/dto/*",
         "#Routes/*": "./src/routes/*",
-        "#Schemas/*": "./src/schemas/*"
+        "#Schemas/*": "./src/schemas/*",
+        "#Lib/*": "./src/lib/*"
     },
     "lint-staged": {
         "*.js": "eslint --fix",
