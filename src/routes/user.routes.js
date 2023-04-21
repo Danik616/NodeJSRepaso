@@ -1,6 +1,7 @@
+import userLoginController from '#Controllers/user-login.controller.js'
 import userRegisterController from '#Controllers/user-register.controller.js'
+import userLoginDTO from '#Dto/user-login.dto.js'
 // import userJWTDTO from '#Dto/user-JWT.dto.js'
-// import userLoginDTO from '#Dto/user-login.dto.js'
 import userRegisterDTO from '#Dto/user-register.dto.js'
 // import userUnregisterDTO from '#Dto/user-unregister.dto.js'
 // import userUpdateDataDTO from '#Dto/user-update-data.dto.js'
@@ -12,7 +13,7 @@ const userRouter= Router()
 
 userRouter.post("/register", userRegisterDTO, userRegisterController)
 
-// userRouter.post("/login",userLoginDTO, userLoginController)
+userRouter.post("/login",userLoginDTO, userLoginController)
 
 // userRouter.get("/profile", userJWTDTO, userProfileController)
 // userRouter.patch("/update-data",userJWTDTO, userUpdateDataDTO, userUpdateDataController)
