@@ -26,10 +26,18 @@
         "prettier": "2.7.1"
     },
     "imports": {
-        "#Lib/*": "./src/lib/*"
+        "#Config/*": "./src/config/*",
+        "#Controllers/*": "./src/controllers/*",
+        "#Dto/*": "./src/dto/*",
+        "#Routes/*": "./src/routes/*",
+        "#Schemas/*": "./src/schemas/*"
     },
     "lint-staged": {
         "*.js": "eslint --fix",
         "*.{js,md}": "prettier --write"
+    },
+    "dependencies": {
+        "express": "^4.18.2",
+        "mongoose": "^7.0.4"
     }
 }
