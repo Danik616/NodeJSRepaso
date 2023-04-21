@@ -1,3 +1,4 @@
+import userJWTDTO from '#Dto/user-JWT.dto.js'
 import userLoginDTO from '#Dto/user-login.dto.js'
 import userRegisterDTO from '#Dto/user-register.dto.js'
 import userUnregisterDTO from '#Dto/user-unregister.dto.js'
@@ -14,10 +15,10 @@ userRouter.post("/register", userRegisterDTO, (req, res) =>{
 
 userRouter.post("/login",userLoginDTO)
 
-userRouter.get("/profile")
-userRouter.patch("/update-data", userUpdateDataDTO)
-userRouter.patch("/update-email", userUpdateEmailDTO)
-userRouter.patch("/update-password", userUpdatePasswordDTO)
+userRouter.get("/profile", userJWTDTO)
+userRouter.patch("/update-data",userJWTDTO, userUpdateDataDTO)
+userRouter.patch("/update-email",userJWTDTO, userUpdateEmailDTO)
+userRouter.patch("/update-password",userJWTDTO, userUpdatePasswordDTO)
 userRouter.delete("/unsubscribe", userUnregisterDTO)
 
 export default userRouter
