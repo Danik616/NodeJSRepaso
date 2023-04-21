@@ -1,4 +1,9 @@
+import userLoginDTO from '#Dto/user-login.dto.js'
 import userRegisterDTO from '#Dto/user-register.dto.js'
+import userUnregisterDTO from '#Dto/user-unregister.dto.js'
+import userUpdateDataDTO from '#Dto/user-update-data.dto.js'
+import userUpdateEmailDTO from '#Dto/user-update-email.dto.js'
+import userUpdatePasswordDTO from '#Dto/user-update-password.dto.js'
 import {Router} from 'express'
 
 const userRouter= Router()
@@ -7,24 +12,12 @@ userRouter.post("/register", userRegisterDTO, (req, res) =>{
     res.send()
 })
 
-userRouter.post("/login", (req, res)=>{
+userRouter.post("/login",userLoginDTO)
 
-})
-
-userRouter.get("/profile", (req, res) =>{
-
-})
-userRouter.patch("/update-data", (req, res) =>{
-
-})
-userRouter.patch("/update-email", (req, res) =>{
-
-})
-userRouter.patch("/update-password", (req, res) =>{
-
-})
-userRouter.delete("/unsubscribe", (req, res) =>{
-
-})
+userRouter.get("/profile")
+userRouter.patch("/update-data", userUpdateDataDTO)
+userRouter.patch("/update-email", userUpdateEmailDTO)
+userRouter.patch("/update-password", userUpdatePasswordDTO)
+userRouter.delete("/unsubscribe", userUnregisterDTO)
 
 export default userRouter
