@@ -5,7 +5,7 @@ const userUpdateDataController = async (req, res) => {
     const { name, surname } =req.body;
     
     const existingUserByID = await UserModel.findById(id).exec()
-    if(!existingUserByID) return res.status(400).send("Usuario no autorizado")
+    if(!existingUserByID) return res.status(400).send({errors:["Usuario no autorizado"]})
 
     existingUserByID.name= name
     existingUserByID.surname=surname

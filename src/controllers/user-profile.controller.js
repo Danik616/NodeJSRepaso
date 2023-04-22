@@ -4,7 +4,7 @@ const userProfileController = async (req, res) => {
     
     const { id } =req;
     const existingUserByID = await UserModel.findById(id).exec()
-    if(!existingUserByID) return res.status(400).send("Usuario no autorizado")
+    if(!existingUserByID) return res.status(400).send({errors:["Usuario no autorizado"]})
 
     const {_id, name, surname, email} =existingUserByID
 
