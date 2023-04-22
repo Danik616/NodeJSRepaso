@@ -5,14 +5,20 @@ const userJWTDTO = async (req, res, next) =>{
 
     if(!authorization) return res.status(401).send("Usuario no autorizado")
 
-    try {
-        const encoder= TextEncoder()
-        const {payload} = await jwtVerify(authorization, encoder.encode(process.env.JWT_PRIVATE_KEY))
+    const jwt=authorization.split(' ')[1]
 
-        req.id=payload.id
+    if(!jwt) return res.status(401).send('Usuario no  autorizado')
+    try {
+        // Se encontro que habia un error y era por el TextEncoder, ya que no se le habia puesto antes el new
+        const encoder= new TextEncoder()
+        const {payload} = await jwtVerify(
+            jwt,
+            encoder.encode(process.env.JWT_PRIVATE_KEY))
+
+        req.id=payload.id;
         next()
     } catch (error) {
-        res.status(401).send("usuario no autorizado")
+        res.status(401).send("Usuario no autorizado")
     }
 }
 
