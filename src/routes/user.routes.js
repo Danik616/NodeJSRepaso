@@ -13,6 +13,7 @@ import userUpdateEmailController from '#Controllers/user-update-email.controller
 import userUpdatePasswordController from '#Controllers/user-update-password.controller.js'
 import userUnregisterController from '#Controllers/user-unregister.controller.js'
 import {Router} from 'express'
+import userAllController from '#Controllers/user-all.controller.js'
 
 
 
@@ -30,5 +31,6 @@ userRouter.patch("/update-data",userJWTDTO, userUpdateDataDTO, userUpdateDataCon
 userRouter.patch("/update-email",userJWTDTO, userUpdateEmailDTO, userUpdateEmailController)
 userRouter.patch("/update-password",userJWTDTO, userUpdatePasswordDTO, userUpdatePasswordController)
 userRouter.delete("/unregister",userJWTDTO, userUnregisterDTO, userUnregisterController)
+userRouter.get("/all", userJWTDTO, userAllController)
 
 export default userRouter
